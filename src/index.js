@@ -95,5 +95,4 @@ class AdvertInfo {
         return wrapper;
     }
 }
-
 export default AdvertInfo;

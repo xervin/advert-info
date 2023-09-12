@@ -1,6 +1,6 @@
 {
   "name": "advert-info",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Adds information about the advertiser to the banner",
   "main": "dist/index.js",
   "repository": {

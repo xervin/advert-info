@@ -33,17 +33,17 @@ banners.forEach((banner) => {
             {
                 name: 'Company',
                 type: 'string',
-                value: adBanner.dataset.company,
+                value: banner.dataset.company,
             },
             {
                 name: 'INN',
                 type: 'string',
-                value: adBanner.dataset.inn,
+                value: banner.dataset.inn,
             },
             {
                 name: 'id',
                 type: 'string',
-                value: adBanner.dataset.id,
+                value: banner.dataset.id,
             },
         ] 
     );
