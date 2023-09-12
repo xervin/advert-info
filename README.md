@@ -1,5 +1,54 @@
 # Advert Info plugin
 
-## Добавляет информационный слой на рекламные баннеры 
-* Информацию о рекламе
-* Информацию о рекламодателе
+## Adds an information layer to advertising banners
+* Information about advertising
+* Information about advertiser
+
+## Install
+
+`npm install advert-info`
+
+## How to use
+Search all banners
+
+```
+const banners = document.querySelectorAll('.ad-banner');
+
+banners.forEach((banner) => {
+    new AdInfo(
+        banner, 
+         [
+            {
+                label: 'Advert object',
+                type: 'link',
+                value: banner.dataset.link,
+            },
+            {
+                label: 'Advert name',
+                type: 'string',
+                value: banner.dataset.adName,
+            },
+        ], 
+        [
+            {
+                name: 'Company',
+                type: 'string',
+                value: adBanner.dataset.company,
+            },
+            {
+                name: 'INN',
+                type: 'string',
+                value: adBanner.dataset.inn,
+            },
+            {
+                name: 'id',
+                type: 'string',
+                value: adBanner.dataset.id,
+            },
+        ] 
+    );
+}    
+```
+
+## Example
+https://codepen.io/xervin/pen/OJrmqKB
