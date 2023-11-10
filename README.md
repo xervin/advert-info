@@ -11,43 +11,86 @@
 ## How to use
 Search all banners
 
+```html
+<div id="app">
+    <div class="wrapper">
+        <div class="banner">1</div>
+        <div class="banner">2</div>
+    </div>
+</div>
 ```
-const banners = document.querySelectorAll('.ad-banner');
 
+```css
+.wrapper {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
+  border: 1px solid;
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+}
+.banner:nth-child(1) {
+  background: blue;
+}
+.banner:nth-child(2) {
+  background: grey;
+}
+.banner:nth-child(3) {
+  background: purple;
+}
+```
+
+```javascript
+import AdInfo from 'advert-info';
+
+const banners = document.querySelectorAll('.banner');
 banners.forEach((banner) => {
     new AdInfo(
-        banner, 
-         [
+        banner,
+        [
             {
-                label: 'Advert object',
+                name: 'Advert object',
                 type: 'link',
-                value: banner.dataset.link,
+                value: 'https://example.com',
             },
             {
-                label: 'Advert name',
+                name: 'Advert name',
                 type: 'string',
-                value: banner.dataset.adName,
+                value: 'Start your business',
             },
-        ], 
+        ],
         [
             {
                 name: 'Company',
                 type: 'string',
-                value: banner.dataset.company,
+                value: 'Cool company',
             },
             {
                 name: 'INN',
                 type: 'string',
-                value: banner.dataset.inn,
+                value: 'xxxx-xxxx-xxxx-xxxx',
             },
             {
                 name: 'id',
                 type: 'string',
-                value: banner.dataset.id,
+                value: 'someid',
             },
-        ] 
+        ]
     );
-}    
+});
 ```
 
 ## Example
