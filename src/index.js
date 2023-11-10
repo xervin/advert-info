@@ -15,6 +15,9 @@ class AdvertInfo {
             if (e.target.classList.contains('ad-layer__menu')) {
                 e.currentTarget.querySelector('.ad-layer__info').classList.toggle('ad-layer__info--active');
             }
+            if (e.target.classList.contains('ad-layer__close')) {
+                e.currentTarget.querySelector('.ad-layer__info').classList.remove('ad-layer__info--active');
+            }
         })
     }
 
@@ -41,12 +44,29 @@ class AdvertInfo {
         const adInfoBlock = this.createBlock('Информация о рекламе', this.advertisingFields);
         const advertiserInfoBlock = this.createBlock('Информация о рекламодателе', this.advertiserFields);
 
-        info.append(adInfoBlock);
-        info.append(advertiserInfoBlock);
+        const w = document.createElement('div');
+        w.classList.add('ad-layer__inner');
+        w.append(adInfoBlock)
+        w.append(advertiserInfoBlock)
+
+        info.append(w);
+
+        const x = document.createElement('div');
+        x.classList.add('ad-layer__close');
+        info.append(x);
 
         this.el.append(text);
-        this.el.append(info);
         this.el.append(menu);
+        this.el.append(info);
+
+        if (this.el.offsetHeight + 40 <= info.offsetHeight) {
+            this.el.classList.add('ad-layer--full-size');
+        }
+        window.addEventListener('resize', () => {
+            if (this.el.offsetHeight + 40 <= info.offsetHeight) {
+                this.el.classList.add('ad-layer--full-size');
+            }
+        })
     }
 
     createRow (data) {
@@ -56,6 +76,7 @@ class AdvertInfo {
                 row = document.createElement('a');
                 row.classList.add('ad-layer__link');
                 row.innerText = data.name;
+                row.setAttribute('target', '_blank')
                 row.href = data.value;
                 break;
             case 'string':

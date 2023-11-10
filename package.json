@@ -1,6 +1,6 @@
 {
   "name": "advert-info",
-  "version": "0.0.3",
+  "version": "0.9.0",
   "description": "Adds information about the advertiser to the banner",
   "main": "dist/index.js",
   "repository": {
@@ -18,7 +18,11 @@
     "advertising",
     "ad",
     "banner",
-    "ad-info"
+    "ad-info",
+    "реклама",
+    "маркировка рекламы",
+    "закон о рекламе",
+    "N 38-ФЗ"
   ],
   "author": "Rulyov Alexander",
   "license": "ISC",
